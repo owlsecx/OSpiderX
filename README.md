@@ -18,13 +18,20 @@
 
 ## 📌 Overview
 
-BFS web crawling, JS rendering, link extraction,
+
+OSpiderX is an internal link-crawler suite that maps a website using iterative breadth-first crawling with optional JavaScript rendering. It respects robots.txt, applies rate limiting with jitter and retries, supports session-based login and subdomain crawling, and extracts links for sitemaps. Output can be written as TXT, JSON, CSV or GraphML, with an optional visual sitemap PNG.
 
 ---
 
 ## ✨ Features
 
-- BFS internal link crawler with robots respect, optional JS render, sitemap & offline self-test
+
+- Iterative BFS crawling (no recursion-stack risk) with pre-compiled regex link extraction
+- Optional JavaScript rendering via Playwright for dynamic pages
+- Robots.txt respect, rate limiting with jitter, retries and configurable timeouts/depth
+- Session-based login support, custom header injection and subdomain crawling
+- Keyword / regex URL filtering and output as TXT, JSON, CSV or GraphML
+- Optional visual sitemap PNG, NO_COLOR/piped-output support and a non-interactive CLI mode
 
 ---
 
@@ -37,8 +44,13 @@ BFS web crawling, JS rendering, link extraction,
 
 ## 🚀 Usage
 
+
 ```bash
-./OSpiderX
+./OSpiderX --url https://example.com --depth 3 --format all --output run1
+./OSpiderX --url https://example.com --js --subdomains --sitemap
+./OSpiderX --url https://example.com --rate 2 --no-robots
+./OSpiderX --self-test
+./OSpiderX --help
 ```
 
 ---
